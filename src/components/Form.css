@@ -1,0 +1,17 @@
+.form-container{
+  margin:20px 200px 10px 320px;
+  width: 1200px;
+  border-radius: 10px;
+  background-color: white;
+  padding:10px;
+  box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
+  text-align:center;
+
+}
+input {
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: none;
+  background-color: #eee;
+  }
