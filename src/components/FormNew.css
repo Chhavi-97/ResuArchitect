@@ -1,16 +1,4 @@
-/* 
-@extend display-flex;
-display-flex, .signup-content, .form-row, .label-flex, .form-radio-group {
-    display: flex;
-    display: -webkit-flex; }
-  
-  @extend list-type-ulli;
-  list-type-ulli, ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0; }
-   */
- 
+
   a:focus, a:active {
     text-decoration: none;
     outline: none;
@@ -147,12 +135,7 @@ margin-top:20px;}
 }
     .label-flex label {
       width: auto; }
-  .signup-content{
-    /* background-color: #222; */
-  }
-  .register-form{
-    /* background-color: #fff; */
-  }
+ 
   .form-link {
     font-size: 20px;
     color: #222;
@@ -205,42 +188,7 @@ margin-top:20px;}
     input[type=radio]:checked ~ .check::before {
       background: #329e5e; }
   
-  /* ul {
-    background: 0 0;
-    position: relative;
-    z-index: 9;
-    border: 1px solid #ebebeb;
-    border-radius: 5px;
-   }
-  
-  ul li {
-    padding: 13px 20px;
-    z-index: 2;
-    color: #222; }
-  
-  ul li:not(.init) {
-    display: none;
-    background: #fff;
-    color: #222;
-    padding: 5px 10px; }
-  
-  ul li:not(.init):hover, ul li.selected:not(.init) {
-    background: #329e5e;
-    color: #fff; }
-  
-  li.init {
-    cursor: pointer;
-    position: relative; }
-    li.init:after {
-      position: absolute;
-      right: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-     
-      font-size: 22px;
-      color: #222;
-      font-family: 'Material-Design-Iconic-Font';
-      content: '\f2f2'; } */
+
   
   #slider-margin {
     height: 5px;

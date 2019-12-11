@@ -5,16 +5,34 @@
     text-align: left;
     color:white;
     padding:20px 50px;
+    display: flex;
+    justify-content: space-between;
+}
+.main-container2{
+    background-image: linear-gradient(-90deg, rgb(15, 53, 4),rgb(109, 241, 109));
+    height: 400px;
+    margin:10px 20px;
+    text-align: left;
+    color:white;
+    padding:20px 50px;
+    display: flex;
+    justify-content: space-between;
 }
 .main-heading{
     font-size:60px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family:Helvetica, sans-serif ;
     color:white;
-    /* font-weight: bold; */
     line-height: 70px;
-    letter-spacing: 10px;
+    letter-spacing: 2px;
 }
 .main-content{
-
+    font-size: 25px;
     margin-top:30px;
+    letter-spacing: 2px;
+    color:wheat;
+    font-family: Helvetica, sans-serif;
+}
+
+.main-image{
+    margin:20px 20px 20px 50px;
 }

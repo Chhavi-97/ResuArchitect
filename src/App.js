@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import FormNew from "./components/FormNew";
 import About from "./components/AboutUs";
@@ -7,6 +6,7 @@ import MainPage from "./components/MainPage";
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
 import SelectTemplate from "./components/SelectTemplate";
 import HomePage from "./components/HomePage";
+import Footer from "./components/Footer";
 
 class App extends Component {
  
@@ -23,7 +23,7 @@ class App extends Component {
             <Route path="/about"  component={About}/>
             <Route path="/form"  component={FormNew}/>
           </Switch>
-        
+        <Footer/>
         </div>
         </Router>
        
