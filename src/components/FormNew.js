@@ -7,6 +7,8 @@ class FormNew extends Component{
   constructor(props){
     super(props)
     this.state={
+      response:'',
+      responseToPost:'',
       name: null,
       contact:null,
       mailid:null,
@@ -43,18 +45,21 @@ class FormNew extends Component{
       i1description:null,
       mj1startdate:null,
       mj1enddate:null,
+      mj1projectname:null,
       mj1institution:null,
       mj1technologies:null,
       mj1mentor:null,
       mj1description:null,
       mn2startdate:null,
       mn2enddate:null,
+      mn2projectname:null,
       mn2institution:null,
       mn2technologies:null,
       mn2mentor:null,
       mn2description:null,
       mn1startdate:null,
       mn1enddate:null,
+      mn1projectname:null,
       mn1institution:null,
       mn1technologies:null,
       mn1mentor:null,
@@ -81,10 +86,38 @@ class FormNew extends Component{
     this.baseState=this.state
   }
 
-  handleSubmit=(event)=>{
-    event.preventDefault()
-    console.log(this.state)
+  componentDidMount(){
+    this.callApi().then(res=>this.setState({response:res.express})).catch(err=> console.log(err));
+
+
   }
+
+  callApi = async ()=>{
+
+    const response = await fetch('/api/hello');
+    const body = await response.json();
+    if(response.status!==200) throw Error(body.message);
+
+    return body;
+  }
+
+  handleSubmit= async (e) =>{
+    e.preventDefault();
+    console.log(this.state)
+
+    const response = await fetch('/api/world',{
+        method: 'POST',
+        headers:{
+            'Content-Type': 'application/josn',
+        },
+        body: JSON.stringify({post:this.state}),
+
+    });
+    const body = await response.text();
+
+    this.setState({responseToPost: body});
+  };
+
   handleInputChange=(event)=>{
     event.preventDefault()
     console.log(event)
@@ -144,7 +177,7 @@ class FormNew extends Component{
                                 </div>
                             
                                 
-                               
+                               </div>
                                                                
                                 <div className="form-input">
                                     <label htmlFor="address" className="required">Address</label>
@@ -313,12 +346,17 @@ class FormNew extends Component{
                                     <label htmlFor="mj1startdate" className="required">Start Date</label>
                                     <input type="date" name="mj1startdate" id="mj1startdate" onChange={this.handleInputChange} required />
                                 </div>
-                                <div className="form-input">
+                               <div className="form-input">
                                     <label htmlFor="mj1enddate" className="required">End Date</label>
                                     <input type="date" name="mj1enddate" id="mj1enddate" onChange={this.handleInputChange} required/>
                                 </div>
                                
                                 </div>
+                                <div className="form-input">
+                                    <label htmlFor="mj1projectname" className="required">Project Name</label>
+                                    <input type="text" name="mj1projectname" id="mj1projectname" onChange={this.handleInputChange} required/>
+                                </div>
+                                
                                 <div className="name-group">
                                
                                 <div className="form-input">
@@ -352,6 +390,11 @@ class FormNew extends Component{
                                 </div>
                                
                                 </div>
+
+                                <div className="form-input">
+                                    <label htmlFor="mn2projectname" className="required">Project Name</label>
+                                    <input type="text" name="mn2projectname" id="mn2projectname" onChange={this.handleInputChange} required/>
+                                </div>
                                 <div className="name-group">
                                
                                 <div className="form-input">
@@ -384,6 +427,11 @@ class FormNew extends Component{
                                     <input type="date" name="mn1enddate" id="mn1enddate" onChange={this.handleInputChange} required />
                                 </div>
                                
+                                </div>
+
+                                <div className="form-input">
+                                    <label htmlFor="mn1projectname" className="required">Project Name</label>
+                                    <input type="text" name="mn1projectname" id="mn1projectname" onChange={this.handleInputChange} required/>
                                 </div>
                                 <div className="name-group">
                                
@@ -499,7 +547,10 @@ class FormNew extends Component{
                        <div>
                                 
                             </div>
-                        </div>
+                        
+                        
+                        
+                       
                        
                         <div className="form-submit">
                           <input type="submit" value="Submit" className="submit" id="submit" name="submit" /> 
@@ -507,15 +558,13 @@ class FormNew extends Component{
                         </div>
                          
 
-                         <h3>CHECK THE ENTRIES MADE BY YOU AND CLICK NEXT TO CONTINUE</h3>
-
-
-                         NAME : {this.state.name}
-                         CONTACT: {this.state.contact}
-
+                         
+                    
                         
                         <div> <Link to="/selectTemplate"><button>Next >></button></Link></div>
                     </form>
+
+                    <p>{this.state.responseToPost}</p>
                 </div>
             </div>
         </div>
